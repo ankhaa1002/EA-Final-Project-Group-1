@@ -12,5 +12,6 @@ public class MumVolunteerWebsiteApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MumVolunteerWebsiteApplication.class, args);
+		System.out.println("Making sure git is working??");
 	}
 }
