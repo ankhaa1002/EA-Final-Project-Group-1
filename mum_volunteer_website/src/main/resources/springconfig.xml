@@ -16,5 +16,24 @@
 
 	<!-- Process annotations on registered beans like @Autowired... -->
 	<context:annotation-config />
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+  <property name="host" value="mail.mum.com" />
+	<property name="username" value="" />
+	<property name="password" value="" />
+ 
+	<property name="javaMailProperties">
+	   <props>
+       	      <prop key="mail.smtp.auth">true</prop>
+       	     <prop key="mail.smtp.starttls.enable">true</prop>
+       	   </props>
+	</property>
+
+
+</bean>
+<bean id="mailService" class="com.mum.emailsender.MailService">
+	<property name="mailSender" ref="mailSender" />
+</bean>
+
+	
 
 </beans>
