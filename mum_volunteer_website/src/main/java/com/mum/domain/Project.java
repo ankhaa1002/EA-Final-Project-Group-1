@@ -1,6 +1,7 @@
 package com.mum.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,10 +9,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import ch.qos.logback.core.status.Status;
+import com.mum.domain.enums.Status;
+
 
 @Entity
 public class Project {
@@ -40,6 +43,9 @@ public class Project {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
+	@OneToMany(mappedBy = "project")
+	private List<Task> tasks;
+	
 	public String getTitle() {
 		return title;
 	}
