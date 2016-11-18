@@ -1,4 +1,4 @@
-package com.mum;
+package com.mum.controller;
 
 public class LoginController {
 	public static void main(String args[]){
