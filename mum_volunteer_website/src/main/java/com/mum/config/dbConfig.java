@@ -66,7 +66,7 @@ public class dbConfig {
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.mum.model");
+        factory.setPackagesToScan("com.mum.domain");
         factory.setDataSource(dataSource);
 
         Properties properties = new Properties();
