@@ -1,4 +1,4 @@
-package user.domain;
+package com.mum.domain;
 
 import java.util.Date;
 
