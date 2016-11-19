@@ -4,10 +4,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.mum.domain.Task;
 import com.mum.repository.TaskRepository;
 
+@Service
+@Repository
 public class TaskService {
 	
 	@Autowired

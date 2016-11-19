@@ -22,7 +22,7 @@ import java.util.Properties;
 
 @PropertySource(value = "classpath:db.properties")
 @EnableTransactionManagement(proxyTargetClass = true)
-@EnableJpaRepositories("com.mum.dao")
+@EnableJpaRepositories("com.mum.repository")
 @Configuration
 public class dbConfig {
 

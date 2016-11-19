@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.mum.domain.Project;
 import com.mum.repository.ProjectRepository;
 
+@Service
+@Repository
 public class ProjectService {
 
 	@Autowired
