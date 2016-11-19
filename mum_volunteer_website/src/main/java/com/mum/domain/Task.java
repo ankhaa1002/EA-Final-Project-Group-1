@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,27 +22,31 @@ public class Task {
 	@Id
 	@GeneratedValue
 	private int id;
-	
+
 	@Column
 	private String title;
-	
+
 	@Column
 	private String description;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="start_datetime")
+	@Column(name = "start_datetime")
 	private Date start_date;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="end_datetime")
+	@Column(name = "end_datetime")
 	private Date end_date;
-	
+
 	@ManyToOne
 	@JoinColumn
 	private Project project;
+
+	@ManyToOne
+	@JoinTable(name = "volunteer_task", joinColumns = @JoinColumn(name = "TASK_ID"), inverseJoinColumns = @JoinColumn(name = "VOLUNTEER_ID"))
+	private Volunteer volunteer;
 
 	public String getTitle() {
 		return title;
@@ -90,5 +95,5 @@ public class Task {
 	public void setProject(Project project) {
 		this.project = project;
 	}
-	
+
 }
