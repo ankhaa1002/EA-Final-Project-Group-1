@@ -1,4 +1,4 @@
-package com.mum.emailsender;
+package com.mum.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class MailService {
 
-    @Autowired
-    private MailSender mailSender;
+//    @Autowired
+//    private MailSender mailSender;
 
     private SimpleMailMessage templateMessage;
     
@@ -24,13 +24,13 @@ public class MailService {
 
         SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
         msg.setText(message);
-
-        try{
-            this.mailSender.send(msg);
-        }
-        catch(MailException ex){
-            System.err.println(ex.getMessage());
-        }
+//
+//        try{
+//            this.mailSender.send(msg);
+//        }
+//        catch(MailException ex){
+//            System.err.println(ex.getMessage());
+//        }
         System.out.println("Finished Sending Email...");
         return "OK";
     }
