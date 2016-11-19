@@ -1,5 +1,8 @@
 package com.mum.domain;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Address {
 	private String state;
 	private String city;
