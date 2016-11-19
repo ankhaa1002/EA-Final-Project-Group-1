@@ -13,8 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
-
 @Entity
 public class Volunteer {
 	@Id
@@ -35,12 +33,11 @@ public class Volunteer {
 	private Address address;
 	@Column
 	private String email;
-	@OneToMany(mappedBy="volunteer")
+	@OneToMany(mappedBy = "volunteer")
 	private List<Task> volunteerTask;
-	@ManyToMany(mappedBy="volunteer")
-	private List<Skill> skills;
-	
-	public Volunteer() {}
+
+	public Volunteer() {
+	}
 
 	public int getUserId() {
 		return userId;
