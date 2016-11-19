@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp" />
 <!-- BEGIN BODY -->
 <body class="fixed-top">
@@ -91,14 +92,13 @@
 						<!-- END BEGIN STYLE CUSTOMIZER -->
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 						<h3 class="page-title">
-							Managed Tables <small>managed table samples</small>
+							${title} <small>manage projects and tasks</small>
 						</h3>
 						<ul class="breadcrumb">
-							<li><i class="icon-home"></i> <a href="index.html">Home</a>
-								<i class="icon-angle-right"></i></li>
-							<li><a href="#">Data Tables</a> <i class="icon-angle-right"></i>
+							<li><i class="icon-home"></i> <a href="/project">Home</a> <i
+								class="icon-angle-right"></i></li>
 							</li>
-							<li><a href="#">Managed Tables</a></li>
+							<li><a href="#">${title}</a></li>
 						</ul>
 						<!-- END PAGE TITLE & BREADCRUMB-->
 					</div>
@@ -111,7 +111,7 @@
 						<div class="portlet box light-grey">
 							<div class="portlet-title">
 								<h4>
-									<i class="icon-globe"></i>Managed Table
+									<i class="icon-globe"></i>Projects
 								</h4>
 								<div class="tools">
 									<a href="javascript:;" class="collapse"></a> <a
@@ -144,238 +144,39 @@
 										<tr>
 											<th style="width: 8px;"><input type="checkbox"
 												class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
-											<th>Username</th>
-											<th class="hidden-480">Email</th>
-											<th class="hidden-480">Points</th>
-											<th class="hidden-480">Joined</th>
-											<th></th>
+											<th>Title</th>
+											<th class="hidden-480">Description</th>
+											<th class="hidden-480">Start date</th>
+											<th class="hidden-480">End Date</th>
+											<th class="hidden-480">Location</th>
+											<th class="hidden-480">Status</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>shuxer</td>
-											<td class="hidden-480"><a href="mailto:shuxer@gmail.com">shuxer@gmail.com</a></td>
-											<td class="hidden-480">120</td>
-											<td class="center hidden-480">12 Jan 2012</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>looper</td>
-											<td class="hidden-480"><a
-												href="mailto:looper90@gmail.com">looper90@gmail.com</a></td>
-											<td class="hidden-480">120</td>
-											<td class="center hidden-480">12.12.2011</td>
-											<td><span class="label label-warning">Suspended</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>userwow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@yahoo.com">userwow@yahoo.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">12.12.2012</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>user1wow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">12.12.2012</td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>restest</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">12.12.2012</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>foopl</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">19.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>weep</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">19.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>coop</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">19.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>pppol</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">19.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>test</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">19.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>userwow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">12.12.2012</td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>test</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">12.12.2012</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>goop</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">12.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>weep</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">15.11.2011</td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>toopl</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">16.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>userwow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">9.12.2012</td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>tes21t</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">14.12.2012</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>fop</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">13.11.2010</td>
-											<td><span class="label label-warning">Suspended</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>kop</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">17.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>vopl</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">19.11.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>userwow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">12.12.2012</td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>wap</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">12.12.2012</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>test</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">19.12.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>toop</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">17.12.2010</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>weep</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td class="hidden-480">20</td>
-											<td class="center hidden-480">15.11.2011</td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
+										<c:forEach var="project" items="${projects}">
+											<tr class="odd gradeX">
+												<td><input type="checkbox" class="checkboxes" value="1" /></td>
+												<td>${project.title}</td>
+												<td class="hidden-480">${project.description}</td>
+												<td class="hidden-480">${project.startDate}</td>
+												<td class="center hidden-480">${project.endDate}</td>
+												<td class="hidden-480">${project.location}</td>
+												<td><span class="hidden-480 label <c:choose>
+																		    <c:when test="${project.status == 'PENDING'}">
+																		        label-warning 
+																		        <br />
+																		    </c:when>    
+																		    <c:when test="${project.status == 'COMPLETED'}">
+																		        label-success 
+																		        <br />
+																		    </c:when>
+																		    <c:otherwise>
+																		        label-inverse 
+																		        <br />
+																		    </c:otherwise>
+																		</c:choose>">${project.status}</span></td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>
@@ -383,251 +184,7 @@
 						<!-- END EXAMPLE TABLE PORTLET-->
 					</div>
 				</div>
-				<div class="row-fluid">
-					<div class="span6 responsive" data-tablet="span12 fix-offset"
-						data-desktop="span6">
-						<!-- BEGIN EXAMPLE TABLE PORTLET-->
-						<div class="portlet box grey">
-							<div class="portlet-title">
-								<h4>
-									<i class="icon-user"></i>Table
-								</h4>
-								<div class="actions">
-									<a href="#" class="btn blue"><i class="icon-pencil"></i>
-										Add</a>
-									<div class="btn-group">
-										<a class="btn green" href="#" data-toggle="dropdown"> <i
-											class="icon-cogs"></i> Tools <i class="icon-angle-down"></i>
-										</a>
-										<ul class="dropdown-menu pull-right">
-											<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-											<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
-											<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-											<li class="divider"></li>
-											<li><a href="#"><i class="i"></i> Make admin</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="portlet-body">
-								<table class="table table-striped table-bordered table-hover"
-									id="sample_2">
-									<thead>
-										<tr>
-											<th style="width: 8px;"><input type="checkbox"
-												class="group-checkable" data-set="#sample_2 .checkboxes" /></th>
-											<th>Username</th>
-											<th class="hidden-480">Email</th>
-											<th class="hidden-480">Status</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>shuxer</td>
-											<td class="hidden-480"><a href="mailto:shuxer@gmail.com">shuxer@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>looper</td>
-											<td class="hidden-480"><a
-												href="mailto:looper90@gmail.com">looper90@gmail.com</a></td>
-											<td><span class="label label-warning">Suspended</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>userwow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@yahoo.com">userwow@yahoo.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>user1wow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>restest</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>foopl</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>weep</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>coop</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>pppol</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>test</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>userwow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>test</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- END EXAMPLE TABLE PORTLET-->
-					</div>
-					<div class="span6 responsive" data-tablet="span12 fix-offset"
-						data-desktop="span6">
-						<!-- BEGIN EXAMPLE TABLE PORTLET-->
-						<div class="portlet box purple">
-							<div class="portlet-title">
-								<h4>
-									<i class="icon-cogs"></i>Table
-								</h4>
-								<div class="actions">
-									<a href="#" class="btn green"><i class="icon-plus"></i> Add</a>
-									<a href="#" class="btn yellow"><i class="icon-print"></i>
-										Print</a>
-								</div>
-							</div>
-							<div class="portlet-body">
-								<table class="table table-striped table-bordered table-hover"
-									id="sample_3">
-									<thead>
-										<tr>
-											<th style="width: 8px;"><input type="checkbox"
-												class="group-checkable" data-set="#sample_3 .checkboxes" /></th>
-											<th>Username</th>
-											<th class="hidden-480">Email</th>
-											<th class="hidden-480">Status</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>shuxer</td>
-											<td class="hidden-480"><a href="mailto:shuxer@gmail.com">shuxer@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>looper</td>
-											<td class="hidden-480"><a
-												href="mailto:looper90@gmail.com">looper90@gmail.com</a></td>
-											<td><span class="label label-warning">Suspended</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>userwow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@yahoo.com">userwow@yahoo.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>user1wow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>restest</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>foopl</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>weep</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>coop</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>pppol</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>test</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">good@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>userwow</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">userwow@gmail.com</a></td>
-											<td><span class="label label-inverse">Blocked</span></td>
-										</tr>
-										<tr class="odd gradeX">
-											<td><input type="checkbox" class="checkboxes" value="1" /></td>
-											<td>test</td>
-											<td class="hidden-480"><a
-												href="mailto:userwow@gmail.com">test@gmail.com</a></td>
-											<td><span class="label label-success">Approved</span></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- END EXAMPLE TABLE PORTLET-->
-					</div>
-				</div>
+
 				<!-- END PAGE CONTENT-->
 			</div>
 			<!-- END PAGE CONTAINER-->

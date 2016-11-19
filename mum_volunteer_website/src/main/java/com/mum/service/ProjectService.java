@@ -25,7 +25,7 @@ public class ProjectService {
 		return projectRepository.findOne(id);
 	}
 
-	public List<Project> findAllPizzas() {
+	public List<Project> findAllProjects() {
 		return projectRepository.findAll();
 	}
 
