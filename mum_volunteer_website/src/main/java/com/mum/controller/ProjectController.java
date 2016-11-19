@@ -16,9 +16,15 @@ public class ProjectController {
 	ProjectService service;
 	
 	@RequestMapping("/project")
-    public String hello(Model model) {
+    public String index(Model model) {
 		model.addAttribute("title", "Project list");
 		model.addAttribute("projects", service.findAllProjects());
 		return "project";
+    }
+	
+	@RequestMapping("/addProject")
+    public String addProject(Model model) {
+		model.addAttribute("title","Add new Project");
+		return "addProject";
     }
 }
