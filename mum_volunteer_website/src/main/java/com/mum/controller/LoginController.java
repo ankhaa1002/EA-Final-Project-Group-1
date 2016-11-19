@@ -9,7 +9,6 @@ import com.mum.domain.Project;
 import com.mum.service.ProjectService;
 
 @Controller
-@ResponseBody
 public class LoginController {
 	
 	@Autowired
@@ -17,9 +16,6 @@ public class LoginController {
 	
 	@RequestMapping("/")
     public String hello() {
-		Project p = new Project();
-		p.setDescription("asdasd");
-		service.saveProject(p);
-		return p.getDescription();
+		return "hello";
     }
 }
