@@ -1,8 +1,15 @@
 package com.mum.controller;
 
-public class LoginController {
-	public static void main(String args[]){
-		System.out.println("why it is not working");
-	}
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+@Controller
+public class LoginController {
+
+	@RequestMapping("/")
+    public String hello() {
+        return "hello";
+    }
 }
