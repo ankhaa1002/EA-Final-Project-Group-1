@@ -1,5 +1,6 @@
 package com.mum.pojo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import com.mum.service.SkillService;
 
 public class ProjectForm {
 	
+	private int id;
 	private String title;
 	
 	private String description;
@@ -19,7 +21,9 @@ public class ProjectForm {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date endDate;
 	
-	private List<Integer> skills;
+	private List<Skill> allSkils = new ArrayList<>();
+	
+	private List<Skill> skills;
 	
 	private String location;
 	private Status status;
@@ -59,11 +63,29 @@ public class ProjectForm {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	public List<Integer> getSkill() {
+	public List<Skill> getSkill() {
 		return skills;
 	}
 	public void setSkill(List<Integer> skill) {
 		this.skills = skills;
+	}
+	public List<Skill> getAllSkils() {
+		return allSkils;
+	}
+	public void setAllSkils(List<Skill> allSkils) {
+		this.allSkils = allSkils;
+	}
+	public List<Skill> getSkills() {
+		return skills;
+	}
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

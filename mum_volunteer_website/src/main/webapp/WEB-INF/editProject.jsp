@@ -51,8 +51,8 @@
 						<!-- END BEGIN STYLE CUSTOMIZER -->
 						<h3 class="page-title">${title}</h3>
 						<ul class="breadcrumb">
-							<li><i class="icon-home"></i> <a href="/project">Home</a>
-								<span class="icon-angle-right"></span></li>
+							<li><i class="icon-home"></i> <a href="/project">Home</a> <span
+								class="icon-angle-right"></span></li>
 							<li><a href="#">${title}</a>
 						</ul>
 					</div>
@@ -80,14 +80,15 @@
 										<div class="portlet-body form">
 											<!-- BEGIN FORM-->
 											<form:form method="post" modelAttribute="project"
-												action="projectAdd" class="horizontal-form">
+												action="editSave" class="horizontal-form">
 												<fieldset>
 													<legend>Project Info</legend>
 													<div class="row-fluid">
 														<div class="span6 ">
 															<div class="control-group">
-																<label class="control-label" for="firstName">Title</label>
+																<label class="control-label">Title</label>
 																<div class="controls">
+																	<form:hidden path="id" />
 																	<form:input type="text" path="title"
 																		class="m-wrap span12" placeholder="Title" />
 																	<form:errors path="title" />
@@ -97,8 +98,7 @@
 														<!--/span-->
 														<div class="span6 ">
 															<div class="control-group">
-																<label class="control-label" for="firstName">Location
-																	/Address/</label>
+																<label class="control-label">Location /Address/</label>
 																<div class="controls">
 																	<form:input type="text" path="location"
 																		class="m-wrap span12" placeholder="Location" />
@@ -149,9 +149,29 @@
 																<label class="control-label" for="lastName">Required
 																	skills</label>
 																<div class="controls">
-																	<form:select id="skills" multiple="true" style="width:100%;" path="skills">
-																		<form:options items="${project.allSkils}" itemValue="id" itemLabel="name" />
+<%-- 																	<spring:bind path="skills"> --%>
+<!-- 																		<select id="skills" multiple="multiple" -->
+<!-- 																			" style="width: 100%;"> -->
+<%-- 																			<c:forEach items="${project.allSkils}" var="skill"> --%>
+<%-- 																				<c:forEach items="${project.skills}" --%>
+<%-- 																					var="currentSkill"> --%>
+<%-- 																					<c:if test="${skill.id == currentSkill.id}"> --%>
+<%-- 																						<c:set var="selected" value="true" /> --%>
+<%-- 																					</c:if> --%>
+<%-- 																				</c:forEach> --%>
+<%-- 																				<option name="skillj" value="${skill.id}" --%>
+<%-- 																					<c:if test="${selected}">selected="selected"</c:if>> --%>
+<%-- 																					${skill.name}</option> --%>
+<%-- 																				<c:remove var="selected" /> --%>
+<%-- 																			</c:forEach> --%>
+<!-- 																		</select> -->
+<%-- 																	</spring:bind> --%>
+																	<form:select id="skills" multiple="true"
+																		style="width:100%;" path="skills">
+																		<form:options items="${project.allSkils}"
+																			itemValue="id" itemLabel="name" />
 																	</form:select>
+
 																</div>
 															</div>
 														</div>
