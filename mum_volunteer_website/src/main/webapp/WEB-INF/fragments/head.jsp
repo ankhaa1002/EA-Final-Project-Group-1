@@ -26,6 +26,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	rel="stylesheet" type="text/css" />
 <link href="resources/plugins/bootstrap/css/bootstrap-responsive.min.css"
 	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="resources/plugins/select2/select2_metro.css" />
 <link href="resources/plugins/font-awesome/css/font-awesome.css"
 	rel="stylesheet" type="text/css" />
 <link href="resources/css/style-metro.css" rel="stylesheet" />

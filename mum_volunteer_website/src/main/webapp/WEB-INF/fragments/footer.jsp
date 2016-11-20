@@ -24,6 +24,8 @@
 	<script src="resources/plugins/jquery.blockui.js" type="text/javascript"></script>	
 	<script src="resources/plugins/jquery.cookie.js" type="text/javascript"></script>
 	<script src="resources/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>	
+	<script type="text/javascript" src="resources/plugins/select2/select2.min.js"></script>
+	<script type="text/javascript" src="resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 	<script type="text/javascript" src="resources/plugins/data-tables/jquery.dataTables.js"></script>
@@ -37,6 +39,14 @@
 			App.init();
 			TableManaged.init();
 		});
+		
+		$("#skills").select2();
+		 $('#start_date').datepicker({
+		        format: 'dd/mm/yyyy'
+		    });
+		 $('#end_date').datepicker({
+		        format: 'dd/mm/yyyy'
+		    });
 	</script>
 
 <!-- END JAVASCRIPTS -->
