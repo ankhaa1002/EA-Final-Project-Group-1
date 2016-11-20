@@ -126,7 +126,7 @@
 										<thead>
 											<tr>
 												<th style="width: 8px;"><input type="checkbox"
-													id="needCheck" class="group-checkable"
+													class="group-checkable"
 													data-set="#sample_1 .checkboxes" /></th>
 												<th>Title</th>
 												<th class="hidden-480">Description</th>

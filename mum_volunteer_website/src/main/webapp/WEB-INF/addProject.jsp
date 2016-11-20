@@ -100,7 +100,7 @@
 																<label class="control-label" for="firstName">Location
 																	/Address/</label>
 																<div class="controls">
-																	<form:input type="text" path="location"
+																	<form:input id="location" type="text" path="location"
 																		class="m-wrap span12" placeholder="Location" />
 																	<form:errors path="location" />
 																</div>

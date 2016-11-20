@@ -46,6 +46,8 @@
 <script src="resources/scripts/app.js"></script>
 <script src="resources/scripts/table-managed.js"></script>
 <script src="resources/scripts/table-editable.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="resources/scripts/jquery.geocomplete.min.js"></script>
 <script>
 	jQuery(document).ready(function() {
 		App.init();
@@ -61,22 +63,28 @@
 		format : 'dd/mm/yyyy'
 	});
 
-	$("#edit").click(function() {
-		var selected = [];
+	$("#edit").click(
+			function() {
+				var selected = [];
 
-		$('#needCheck input:checked').each(function() {
-			selected.push($(this).attr('value'));
-		});
+				$('#needCheck input:checked').each(function() {
+					selected.push($(this).attr('value'));
+				});
 
-		if (selected.length > 1)
-			alert('Multi selection forbidden on edit!');
-		else if (selected.length == 0) {
-			alert('You must select one project');
-			$("#edit").attr("href", "#");
-		} else {
-			$("#edit").attr("href", "editProject-" + selected[0]);
-		}
-	});
+				if (selected.length > 1)
+					alert('Multi selection forbidden on edit!');
+				else if (selected.length == 0) {
+					alert('You must select one project');
+					$("#edit").attr("href", "#");
+				} else {
+					$("#edit").attr("href", "editProject-" + selected[0]);
+				}
+
+				var autocomplete = new google.maps.places.Autocomplete(
+						$("#location")[0], {});
+
+			});
+// 	$("#location").geocomplete();
 </script>
 
 <!-- END JAVASCRIPTS -->
