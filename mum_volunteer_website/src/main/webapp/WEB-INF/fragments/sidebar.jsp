@@ -14,6 +14,12 @@
 				class="icon-home"></i> <span class="title">Project</span>
 				
 		</a></li>
+		
+		<li class="start <c:if test='${title} == "Volunteer list"'>active</c:if>"><a href="/volunteer"> <i
+				class="icon-home"></i> <span class="title">Volunteer</span>
+				
+		</a></li>
+		
 		<li class="<c:if test="${requestScope['javax.servlet.forward.request_uri']} == '/volunteer'">active</c:if>"><a href="javascript:;"> <i class="icon-cogs"></i>
 				<span class="title">Volunteer</span></span>
 		</a></li>
