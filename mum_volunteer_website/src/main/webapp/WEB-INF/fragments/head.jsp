@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 2.3.1
@@ -24,9 +24,11 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="resources/plugins/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
-<link href="resources/plugins/bootstrap/css/bootstrap-responsive.min.css"
+<link
+	href="resources/plugins/bootstrap/css/bootstrap-responsive.min.css"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="resources/plugins/select2/select2_metro.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/plugins/select2/select2_metro.css" />
 <link href="resources/plugins/font-awesome/css/font-awesome.css"
 	rel="stylesheet" type="text/css" />
 <link href="resources/css/style-metro.css" rel="stylesheet" />
@@ -49,6 +51,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	rel="stylesheet" type="text/css" />
 <link href="resources/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet"
 	type="text/css" media="screen" />
+<link rel="stylesheet"
+	href="resources/plugins/data-tables/DT_bootstrap.css" />
 <!-- END PAGE LEVEL STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
 </head>

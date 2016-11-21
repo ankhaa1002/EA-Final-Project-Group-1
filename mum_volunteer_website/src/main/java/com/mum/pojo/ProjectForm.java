@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.mum.domain.Skill;
+import com.mum.domain.Task;
 import com.mum.domain.enums.Status;
 import com.mum.service.SkillService;
 
@@ -22,6 +23,7 @@ public class ProjectForm {
 	private Date endDate;
 	
 	private List<Skill> allSkils = new ArrayList<>();
+	private List<Task> tasks = new ArrayList<>();
 	
 	private List<Skill> skills;
 	
@@ -86,6 +88,12 @@ public class ProjectForm {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public List<Task> getTasks() {
+		return tasks;
+	}
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
 	}
 	
 	

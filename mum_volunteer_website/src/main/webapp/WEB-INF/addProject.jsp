@@ -51,8 +51,8 @@
 						<!-- END BEGIN STYLE CUSTOMIZER -->
 						<h3 class="page-title">${title}</h3>
 						<ul class="breadcrumb">
-							<li><i class="icon-home"></i> <a href="/project">Home</a>
-								<span class="icon-angle-right"></span></li>
+							<li><i class="icon-home"></i> <a href="/project">Home</a> <span
+								class="icon-angle-right"></span></li>
 							<li><a href="#">${title}</a>
 						</ul>
 					</div>
@@ -149,22 +149,55 @@
 																<label class="control-label" for="lastName">Required
 																	skills</label>
 																<div class="controls">
-																	<form:select id="skills" multiple="true" style="width:100%;" path="skills">
-																		<form:options items="${project.allSkils}" itemValue="id" itemLabel="name" />
+																	<form:select id="skills" multiple="true"
+																		style="width:100%;" path="skills">
+																		<form:options items="${project.allSkils}"
+																			itemValue="id" itemLabel="name" />
 																	</form:select>
 																</div>
 															</div>
 														</div>
 													</div>
-
+													</fieldset>
+													<fieldset>
+													<legend>Tasks</legend>
+													<div class="portlet-body">
+														<div class="clearfix">
+															<div class="btn-group">
+																<button id="sample_editable_1_new" class="btn green">
+																	Add New <i class="icon-plus"></i>
+																</button>
+															</div>
+															
+														</div>
+														<table
+															class="table table-striped table-hover table-bordered"
+															id="sample_editable_1">
+															<thead>
+																<tr>
+																	<th>Title</th>
+																	<th>Description</th>
+																	<th>Start date</th>
+																	<th>End date</th>
+																	<th>Edit</th>
+																	<th>Delete</th>
+																</tr>
+															</thead>
+															<tbody>
+																
+															</tbody>
+														</table>
+													</div>
 
 													<!--/row-->
 												</fieldset>
+
+
 												<div class="form-actions">
 													<button type="submit" class="btn blue">
 														<i class="icon-ok"></i> Save
 													</button>
-													<button type="button" class="btn">Cancel</button>
+													<a href="/project" class="btn">Cancel</a>
 												</div>
 											</form:form>
 											<!-- END FORM-->

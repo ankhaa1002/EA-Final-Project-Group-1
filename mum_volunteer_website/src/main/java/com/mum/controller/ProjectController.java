@@ -1,6 +1,10 @@
 package com.mum.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +22,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mum.domain.Project;
 import com.mum.domain.Skill;
+import com.mum.domain.Task;
 import com.mum.domain.enums.Status;
 import com.mum.pojo.ProjectForm;
 import com.mum.service.ProjectService;
 import com.mum.service.SkillService;
+import com.mum.service.TaskService;
 
 import scala.annotation.meta.setter;
 
@@ -33,6 +39,9 @@ public class ProjectController {
 
 	@Autowired
 	SkillService skillService;
+
+	@Autowired
+	TaskService taskService;
 
 	@RequestMapping("/project")
 	public String index(Model model) {
@@ -66,7 +75,8 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/projectAdd", method = RequestMethod.POST)
-	public String saveProject(@ModelAttribute("project") ProjectForm project, BindingResult result, Model model) {
+	public String saveProject(@ModelAttribute("project") ProjectForm project, BindingResult result, Model model,
+			HttpServletRequest req) {
 
 		Project entity = new Project();
 		entity.setDescription(project.getDescription());
@@ -77,10 +87,65 @@ public class ProjectController {
 		entity.setSkills(project.getSkills());
 		entity.setStatus(Status.PENDING);
 
-		service.saveProject(entity);
-		model.addAttribute("msg", "Project has been successfully added!");
+		if (req.getParameterValues("task_title") != null && req.getParameterValues("task_description") != null
+				&& req.getParameterValues("task_start_date") != null
+				&& req.getParameterValues("task_end_date") != null) {
+			List<Task> tasks = new ArrayList<>();
 
-		return "redirect:/project?create=true";
+			for (String title : req.getParameterValues("task_title")) {
+				Task task = new Task();
+				task.setTitle(title);
+				tasks.add(task);
+			}
+			int counterDesc = 0;
+			for (String description : req.getParameterValues("task_description")) {
+				tasks.get(counterDesc).setDescription(description);
+				counterDesc++;
+			}
+
+			int counterStart = 0;
+			for (String startDate : req.getParameterValues("task_start_date")) {
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+				Date date = null;
+				try {
+					date = df.parse(startDate);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				tasks.get(counterStart).setStart_date(date);
+				counterStart++;
+			}
+
+			int counterEnd = 0;
+			for (String endtDate : req.getParameterValues("task_end_date")) {
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+				Date date = null;
+				try {
+					date = df.parse(endtDate);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				tasks.get(counterEnd).setEnd_date(date);
+				counterEnd++;
+			}
+
+			Project p = service.saveProject(entity);
+
+			for (Task task : tasks) {
+				task.setProject(p);
+				task.setStatus(Status.PENDING);
+				taskService.saveTask(task);
+			}
+
+			model.addAttribute("msg", "Project has been successfully added!");
+
+			return "redirect:/project?create=true";
+		} else {
+			service.saveProject(entity);
+			model.addAttribute("msg", "Project has been successfully added!");
+
+			return "redirect:/project?create=true";
+		}
 	}
 
 	@RequestMapping(value = { "editProject-{id}" }, method = RequestMethod.GET)
@@ -95,6 +160,7 @@ public class ProjectController {
 		projectForm.setEndDate(project.getEndDate());
 		projectForm.setSkills(project.getSkills());
 		projectForm.setAllSkils(skillService.findAllSkills());
+		projectForm.setTasks(project.getTasks());
 		model.addAttribute("title", "Editing " + project.getTitle());
 		model.addAttribute("project", projectForm);
 		return "editProject";
@@ -110,7 +176,70 @@ public class ProjectController {
 		project.setLocation(projectForm.getLocation());
 		project.setEndDate(projectForm.getEndDate());
 		project.setSkills(projectForm.getSkills());
-		service.saveProject(project);
-		return "redirect:/project?update=true";
+
+		if (req.getParameterValues("task_title") != null && req.getParameterValues("task_description") != null
+				&& req.getParameterValues("task_start_date") != null
+				&& req.getParameterValues("task_end_date") != null) {
+			List<Task> tasks = new ArrayList<>();
+
+			for (String title : req.getParameterValues("task_title")) {
+				Task task = new Task();
+				task.setTitle(title);
+				tasks.add(task);
+			}
+			int counterDesc = 0;
+			for (String description : req.getParameterValues("task_description")) {
+				tasks.get(counterDesc).setDescription(description);
+				counterDesc++;
+			}
+
+			int counterStart = 0;
+			for (String startDate : req.getParameterValues("task_start_date")) {
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+				Date date = null;
+				try {
+					date = df.parse(startDate);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				tasks.get(counterStart).setStart_date(date);
+				counterStart++;
+			}
+
+			int counterEnd = 0;
+			for (String endtDate : req.getParameterValues("task_end_date")) {
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+				Date date = null;
+				try {
+					date = df.parse(endtDate);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				tasks.get(counterEnd).setEnd_date(date);
+				counterEnd++;
+			}
+			
+			List<Task> temps = taskService.findByProject(project);
+			for(Task task : temps)
+				taskService.deletePizza(task);
+			
+			Project p = service.saveProject(project);
+			
+			for (Task task : tasks) {
+				task.setProject(p);
+				task.setStatus(Status.PENDING);
+				taskService.saveTask(task);
+			}
+
+			return "redirect:/project?update=true";
+		} else {
+			List<Task> tasks = taskService.findByProject(project);
+			if(tasks.size() != 0)
+				for(Task task : tasks)
+					taskService.deletePizza(task);
+			
+			service.saveProject(project);
+			return "redirect:/project?update=true";
+		}
 	}
 }

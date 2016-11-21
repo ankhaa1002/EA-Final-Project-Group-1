@@ -149,23 +149,23 @@
 																<label class="control-label" for="lastName">Required
 																	skills</label>
 																<div class="controls">
-<%-- 																	<spring:bind path="skills"> --%>
-<!-- 																		<select id="skills" multiple="multiple" -->
-<!-- 																			" style="width: 100%;"> -->
-<%-- 																			<c:forEach items="${project.allSkils}" var="skill"> --%>
-<%-- 																				<c:forEach items="${project.skills}" --%>
-<%-- 																					var="currentSkill"> --%>
-<%-- 																					<c:if test="${skill.id == currentSkill.id}"> --%>
-<%-- 																						<c:set var="selected" value="true" /> --%>
-<%-- 																					</c:if> --%>
-<%-- 																				</c:forEach> --%>
-<%-- 																				<option name="skillj" value="${skill.id}" --%>
-<%-- 																					<c:if test="${selected}">selected="selected"</c:if>> --%>
-<%-- 																					${skill.name}</option> --%>
-<%-- 																				<c:remove var="selected" /> --%>
-<%-- 																			</c:forEach> --%>
-<!-- 																		</select> -->
-<%-- 																	</spring:bind> --%>
+																	<%-- 																	<spring:bind path="skills"> --%>
+																	<!-- 																		<select id="skills" multiple="multiple" -->
+																	<!-- 																			" style="width: 100%;"> -->
+																	<%-- 																			<c:forEach items="${project.allSkils}" var="skill"> --%>
+																	<%-- 																				<c:forEach items="${project.skills}" --%>
+																	<%-- 																					var="currentSkill"> --%>
+																	<%-- 																					<c:if test="${skill.id == currentSkill.id}"> --%>
+																	<%-- 																						<c:set var="selected" value="true" /> --%>
+																	<%-- 																					</c:if> --%>
+																	<%-- 																				</c:forEach> --%>
+																	<%-- 																				<option name="skillj" value="${skill.id}" --%>
+																	<%-- 																					<c:if test="${selected}">selected="selected"</c:if>> --%>
+																	<%-- 																					${skill.name}</option> --%>
+																	<%-- 																				<c:remove var="selected" /> --%>
+																	<%-- 																			</c:forEach> --%>
+																	<!-- 																		</select> -->
+																	<%-- 																	</spring:bind> --%>
 																	<form:select id="skills" multiple="true"
 																		style="width:100%;" path="skills">
 																		<form:options items="${project.allSkils}"
@@ -180,11 +180,50 @@
 
 													<!--/row-->
 												</fieldset>
+												<fieldset>
+													<legend>Tasks</legend>
+													<div class="portlet-body">
+														<div class="clearfix">
+															<div class="btn-group">
+																<button id="sample_editable_1_new" class="btn green">
+																	Add New <i class="icon-plus"></i>
+																</button>
+															</div>
+
+														</div>
+														<table
+															class="table table-striped table-hover table-bordered"
+															id="sample_editable_1">
+															<thead>
+																<tr>
+																	<th>Title</th>
+																	<th>Description</th>
+																	<th>Start date</th>
+																	<th>End date</th>
+																	<th>Edit</th>
+																	<th>Delete</th>
+																</tr>
+															</thead>
+															<tbody>
+																<c:forEach var="task" items="${project.tasks}">
+																	<tr class="">
+																		<input type="hidden" name="task_title" class="fuck" value="${task.title}"/><td><div class="needful">${task.title}</div></td>
+																		<input type="hidden" name="task_description" class="fuck" value="${task.description}"/><td><div class="needful">${task.description}</div></td>
+																		<input type="hidden" name="task_start_date" class="fuck" value="${task.start_date}"/><td><div class="needful">${task.start_date }</div></td>
+																		<input type="hidden" name="task_end_date" class="fuck" value="${task.end_date}"/><td class="center"><div class="needful">${task.end_date}</div></td>
+																		<td><a class="edit" href="javascript:;">Edit</a></td>
+																		<td><a class="delete" href="javascript:;">Delete</a></td>
+																	</tr>
+																</c:forEach>
+															</tbody>
+														</table>
+													</div>
+												</fieldset>
 												<div class="form-actions">
 													<button type="submit" class="btn blue">
 														<i class="icon-ok"></i> Save
 													</button>
-													<button type="button" class="btn">Cancel</button>
+													<a href="/project" class="btn">Cancel</a>
 												</div>
 											</form:form>
 											<!-- END FORM-->

@@ -3,6 +3,7 @@ package com.mum.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -49,7 +50,7 @@ public class Project {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
-	@OneToMany(mappedBy = "project")
+	@OneToMany(mappedBy = "project", cascade = CascadeType.REMOVE)
 	private List<Task> tasks;
 	
 	public String getTitle() {

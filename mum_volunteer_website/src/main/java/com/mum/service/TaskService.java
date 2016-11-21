@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.mum.domain.Project;
 import com.mum.domain.Task;
 import com.mum.repository.TaskRepository;
 
@@ -18,8 +19,9 @@ public class TaskService {
 	@Autowired
 	private TaskRepository taskRepository;
 	
-	public void saveTask(Task task) {
-		taskRepository.save(task);
+	public Task saveTask(Task task) {
+		Task t = taskRepository.save(task);
+		return t;
 	}
 
 	public Task findTask(int id) {
@@ -40,6 +42,10 @@ public class TaskService {
 	
 	public void deletePizza(Task task) {
 		taskRepository.delete(task);
+	}
+	
+	public List<Task> findByProject(Project project){
+		return taskRepository.findByProject(project);
 	}
 	
 }

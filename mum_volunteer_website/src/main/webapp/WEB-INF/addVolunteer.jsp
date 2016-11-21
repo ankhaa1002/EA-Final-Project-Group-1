@@ -82,21 +82,7 @@
 											<form:form method="post" modelAttribute="volunteer"
 												action="saveVolunteer" class="horizontal-form">
 												<fieldset>private String firstName;
-
-	private String middleName;
-
-	private String LastName;
-
-	private int telNumber;
-
-	private Date DOB;
-
-	private Address address;
-
-	private String email;
-												
-												
-												
+		
 													<legend>Volunteer Info</legend>
 													<div class="row-fluid">
 														<div class="span6 ">
@@ -181,7 +167,7 @@
 													<button type="submit" class="btn blue">
 														<i class="icon-ok"></i> Save
 													</button>
-													<button type="button" class="btn">Cancel</button>
+													<a href="/volunteer" class="btn">Cancel</a>
 												</div>
 											</form:form>
 											<!-- END FORM-->
